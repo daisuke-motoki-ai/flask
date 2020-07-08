@@ -1,0 +1,28 @@
+{
+  "python.pythonPath": "calendar/bin/python",
+  // python の場合 off にしておかないとフォーマッタが効かない
+  // "files.autoSave": "off",
+  "files.autoSave": "afterDelay",
+  // pythonの環境設定
+  "files.watcherExclude": {
+    "**/venv/**": true
+  },
+  // リンタの設定
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.flake8Args": [
+    "--max-line-length",
+    "88",
+    "--ignore=E203,W503,W504"
+  ],
+  // フォーマッタの設定
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  // パッケージの場所を指定（これがないと自動補完が効かない
+  "python.autoComplete.extraPaths": [
+    "/Users/motoki.daisuke/calendar/calendar/lib/python3.7/site-packages/"
+  ],
+  "codic.case": "snake_case",
+}
