@@ -1,1 +1,8 @@
+click==7.1.2
+Flask==1.1.2
+-e git+ssh://daisuke-motoki-ai:57c4b8a37f1aff9f13e00dc851256a072962dbf3@@github.com/dai-motoki/calendar.git@master#egg=optimize_calendar_events-0.0.0
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
 python-dotenv==0.14.0
+Werkzeug==1.0.1
