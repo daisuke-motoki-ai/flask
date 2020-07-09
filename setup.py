@@ -1,30 +1,12 @@
-""" google_calendar python モジュールの初期設定に関するファイル
-    参考URL https://flask.palletsprojects.com/en/1.1.x/patterns/distribute/?highlight=setup%20py
+""" 
+google_calendar python モジュールの初期設定に関するファイル
+参考URL 
+https://flask.palletsprojects.com/en/1.1.x/patterns/distribute/?highlight=setup%20py
+https://qiita.com/knknkn1162/items/d76d03a5245ca42edd7a
+
 """
 
 from setuptools import setup
-
-def load_requires_from_file(filepath):
-    """ パッケージ名だけをリストアップ """
-    with open(filepath) as fp:
-        return [take_package_name(pkg_name) for pkg_name in fp.readlines()]
-
-
-def take_package_name(name):
-    if name.startswith("-e"):
-        return name[name.find("=") + 1 : name.rfind("-")]
-    else:
-        return name.strip()
-
-
-def load_links_from_file(filepath):
-    """ URL部分はsetup関数のキーワード引数dependency_linkに渡す """
-    res = []
-    with open(filepath) as fp:
-        for pkg_name in fp.readlines():
-            if pkg_name.startswith("-e"):
-                res.append(pkg_name.split(" ")[1])
-    return res
 
 setup(
     name='Flask Calendar API',
@@ -35,8 +17,13 @@ setup(
     packages=['flaskr'],
     include_package_data=True,
     zip_safe=False,
-    install_requires=load_requires_from_file("requirements.txt"),
-    dependency_links=load_links_from_file("requirements.txt"),
+    install_requires= [
+                "Flask==1.1.2",
+                'optimize_calendar_events==0.0.0'
+            ],
+    # # vcs(gitなど)の場合は、必ず、eggを追記する必要がある
+    dependency_links = [
+    "git+https://daisuke-motoki-ai:57c4b8a37f1aff9f13e00dc851256a072962dbf3@github.com/dai-motoki/calendar.git@master#egg=optimize_calendar_events-0.0.0"],
     setup_requires=["pytest-runner"],
     tests_require=["pytest", "pytest-cov"],
 )

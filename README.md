@@ -13,10 +13,8 @@ python -m venv venv/flask
 source venv/flask/bin/activate
 pip install --upgrade pip
 python setup.py build
-pip install -e .
+python setup.py install
 ```
-
-
 
 
 ## 開発方法
